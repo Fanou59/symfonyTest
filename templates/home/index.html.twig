@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Voici ma page d'accueil</h1>
+		<h2>Bonjour
+			{{ username }}</h2>
+		<p>Voici la liste des articles :
+		</p>
+		{% for article in list_twig %}
+			Article =
+			{{ article.title }}
+			-
+			<a href="{{ path ('app_blog_article', {'id': article.id}) }}">lien</a>
+			<br>
+			{# {{ article.title}}
+																								écrit par
+																								{{ article.author }}
+																								<br> #}
+
+		{% endfor %}
+	</div>
+
+{% endblock %}

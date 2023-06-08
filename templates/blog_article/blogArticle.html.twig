@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogArticleController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="container">
+		<h1>Affichage d'un article</h1>
+
+
+		Titre :
+		{{ article.title}}
+		<br>
+		Ecrit par :
+		{{ article.author}}
+		<br>
+		Corps de l'article :
+		<br>
+
+		{{ article.text}}
+
+		<br>
+
+
+	</div>
+{% endblock %}
