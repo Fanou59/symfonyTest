@@ -6,9 +6,15 @@
 
 {% block body %}
 	<div class="container">
-		<h1>Voici ma page d'accueil</h1>
-		<h2>Bonjour
-			{{ username }}</h2>
+
+
+		<h1>Bienvenue sur le projet utilisateurs</h1>
+		{% if is_granted('ROLE_USER') %}
+			<a href=" {{ path('app_logout') }} ">Se déconnecter</a>
+		{% else %}
+			<a href=" {{ path('register') }} ">S'inscrire</a>
+			<a href=" {{ path('app_login') }} ">Se connecter</a>
+		{% endif %}
 		<p>Voici la liste des articles :
 		</p>
 		{% for article in list_twig %}
@@ -17,10 +23,7 @@
 			-
 			<a href="{{ path ('app_blog_article', {'id': article.id}) }}">lien</a>
 			<br>
-			{# {{ article.title}}
-																								écrit par
-																								{{ article.author }}
-																								<br> #}
+
 
 		{% endfor %}
 	</div>
